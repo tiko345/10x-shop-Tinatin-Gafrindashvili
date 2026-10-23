@@ -1,9 +1,15 @@
+import { useAuth } from "../context/AuthContext";
+import Header from "../components/layout/Header.tsx";
+
 function Profile() {
-    return (
-        <>
-        <h1>Profile</h1>
-        </>
-    );
+  const { user } = useAuth();
+
+  return(
+    <>
+    <Header />
+     <h1>Welcome, {user}!</h1>
+    </>
+  );
 }
 
 export default Profile;

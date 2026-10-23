@@ -1,8 +1,11 @@
 import { NavLink } from "react-router";
 import { UserRound, ShoppingCart, Moon } from "lucide-react";
-
+import { useAuth } from "../../context/AuthContext";
 
 function  Header() {    
+    //get current user from authentication context
+    const { user } = useAuth();
+
     return(
         <header className="bg-white border-b border-gray-200">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -13,9 +16,9 @@ function  Header() {
                 
                 <nav className="flex items-center gap-6">
                 <NavLink
-                    to="/login"
-                    aria-label="Login"
-                    title="Login"
+                    to={user ? "/profile" : "/login"}
+                    aria-label={user ? "Profile" : "Login"}
+                    title={user ? "Profile" : "Login"}
                     className="text-gray-700 hover:text-blue-600"
                 >
                     <UserRound size={24} />

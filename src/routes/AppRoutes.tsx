@@ -6,6 +6,7 @@ import Cart from "../pages/cart.tsx";
 import Product from "../pages/product.tsx";
 import Checkout from "../pages/checkout.tsx";
 import NotFound from "../pages/notFound.tsx";
+import Profile from "../pages/profile.tsx";
 
 function AppRoutes() {
     return (
@@ -17,6 +18,7 @@ function AppRoutes() {
       <Route path="/product/:id" element={<Product />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
         </>
     );
