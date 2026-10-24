@@ -1,4 +1,4 @@
-import type { ProductsResponse, Category } from "../types/products.ts";
+import type { ProductsResponse, Category, Product } from "../types/products.ts";
 
 // Define a type for the sorting options available for products
 export type ProductSort =
@@ -29,7 +29,8 @@ async function getProducts(
     } else if (search) {
     endpoint += "/search";
 }
-    // Set the limit of products per page and calculate the number of products to skip based on the current page
+    // Set the limit of products per page and calculate the number of products to skip based 
+    // on the current page
     const limit = 12;
     const skip = (page - 1) * limit;
     // Create a URLSearchParams object to construct the query parameters for the API request
@@ -41,7 +42,8 @@ async function getProducts(
     if (search && !category) {
         params.set("q", search);
     }
-    // If a sorting option is provided, split it into sortBy and order and add them to the query parameters
+    // If a sorting option is provided, split it into sortBy and order and add them to the 
+    // query parameters
     if (sort) {
         const [sortBy, order] = sort.split("-");
 
@@ -59,6 +61,9 @@ async function getProducts(
 
     return data;
 }
+
+// Function to fetch categories from the API and return a promise that resolves to an 
+// array of Category objects
 async function getCategories(): Promise<Category[]> {
   const response = await fetch(
     "https://dummyjson.com/products/categories"
@@ -73,5 +78,27 @@ async function getCategories(): Promise<Category[]> {
   return data;
 }
 
+// Function to fetch a single product by its ID from the API and 
+// return a promise that resolves to a Product object or null if not found
+async function getProductById(id: number): Promise<Product | null> {
+  if (!Number.isInteger(id) || id <= 0) {
+    throw new Error("Invalid product ID");
+  }
+  // Fetch the product from the API using the provided ID
+  const response = await fetch(`https://dummyjson.com/products/${id}`);
+  // If the response status is 404, return null to indicate that the product was not found
+  if (response.status === 404) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error("Failed to load product");
+  }
+
+  const data: Product = await response.json();
+
+  return data;
+}
+
 export default getProducts;
-export { getCategories };
+export { getCategories,  getProductById };
