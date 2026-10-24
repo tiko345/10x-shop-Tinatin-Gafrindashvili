@@ -20,3 +20,10 @@ export type ProductsResponse = {
   skip: number;
   limit: number;
 };
+
+//define the Category type
+export type Category = {
+  slug: string;
+  name: string;
+  url: string;
+};

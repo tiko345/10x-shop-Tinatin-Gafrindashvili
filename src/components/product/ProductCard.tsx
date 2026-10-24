@@ -9,9 +9,10 @@ type ProductCardProps = {
 function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+      {/* Link to the product's detail page using the product's id */}
       <Link
         to={`/products/${product.id}`}
-        className="block p-4 transition-colors hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-blue-600"
+        className="block p-4"
       >
         <img
           src={product.thumbnail}
