@@ -6,7 +6,6 @@ function Profile() {
 
   return(
     <>
-    <Header />
      <h1>Welcome, {user}!</h1>
     </>
   );

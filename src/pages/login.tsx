@@ -1,10 +1,9 @@
-import Header from '../components/layout/Header.tsx';
+import Header from "../components/layout/Header.tsx";
 
 function Login() {
     return (
-        <>
-        <Header />
-        <h1>Login</h1>
+        <>       
+        <h1>login</h1>
         </>
     );
 }
