@@ -1,5 +1,4 @@
 import { useAuth } from "../context/AuthContext";
-import Header from "../components/layout/Header.tsx";
 
 function Profile() {
   const { user } = useAuth();

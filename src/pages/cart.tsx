@@ -1,5 +1,3 @@
-import Header from '../components/layout/Header.tsx';
-
 function Cart() {
     return (
         <>

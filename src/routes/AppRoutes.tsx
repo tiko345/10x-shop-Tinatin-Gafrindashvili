@@ -7,7 +7,7 @@ import Product from "../pages/product.tsx";
 import Checkout from "../pages/checkout.tsx";
 import NotFound from "../pages/notFound.tsx";
 import Profile from "../pages/profile.tsx";
-import Layout from '../components/layout/layout.tsx';
+import Layout from "../components/layout/Layout.tsx";
 
 function AppRoutes() {
     return (
