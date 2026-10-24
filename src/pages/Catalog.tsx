@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import  getProducts from "../api/products";
 import type { Product } from "../types/products.ts";
+import ProductGrid from "../components/product/ProductGrid.tsx";
 
 function Catalog() {
     // State to hold the products, loading status, and error message
@@ -54,11 +55,7 @@ function Catalog() {
         ) : products.length === 0 ? (
             <p>No products available.</p>
         ) : (
-            <ul className="space-y-2">
-            {products.map((product) => (
-                <li key={product.id}>{product.title}</li>
-            ))}
-            </ul>
+            <ProductGrid products={products} />
         )}
         </section>
     );
