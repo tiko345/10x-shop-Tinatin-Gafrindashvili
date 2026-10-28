@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { getProductById } from "../api/products";
 import type { Product as ProductType } from "../types/products";
 import NotFound from "./notFound";
+import { useCart } from "../context/CartContext";
 
 function Product() {
     // Get the product ID from the URL parameters and convert it to a number
@@ -18,6 +19,21 @@ function Product() {
     const [selectedImage, setSelectedImage] = useState(0);
     // State variable to hold the quantity of the product to be added to the cart
     const [quantity, setQuantity] = useState(1);
+    // Get the cart context to access the items in the cart and the addItem function
+    const { items, addItem } = useCart();
+    const [cartMessage, setCartMessage] = useState("");
+
+    useEffect(() => {
+        if (cartMessage !== "Added to cart.") {
+            return;
+        }
+
+        const timeoutId = setTimeout(() => {
+            setCartMessage("");
+        }, 2000);
+
+        return () => clearTimeout(timeoutId);
+    }, [cartMessage, items]);
     // Use the useEffect hook to fetch the product data when the component mounts 
     // or when the product ID changes
     useEffect(() => {
@@ -34,6 +50,7 @@ function Product() {
             setProduct(null);
             setSelectedImage(0);
             setQuantity(1);
+            setCartMessage("");
 
             try {
                 const data = await getProductById(productId);
@@ -63,6 +80,32 @@ function Product() {
         };
     }, [productId, isValidId]);
 
+    // Function to handle adding the product to the cart
+    function handleAddToCart() {
+        if (!product) {
+            return;
+        }
+        const existingItem = items.find(
+            (item) => item.product.id === product.id
+        );
+
+        const currentQuantity = existingItem?.quantity ?? 0;
+        const availableQuantity = product.stock - currentQuantity;
+
+        if (quantity > availableQuantity) {
+            setCartMessage(
+                availableQuantity > 0
+                    ? `You can add only ${availableQuantity} more to your cart.`
+                    : "You already have all available stock in your cart."
+            );
+            return;
+        }
+
+        addItem(product, quantity);
+        setCartMessage("Added to cart.");
+    }
+
+
     if (!isValidId) {
         return <NotFound />;
     }
@@ -82,6 +125,8 @@ function Product() {
     if (!product) {
         return <NotFound />;
     }
+    const quantityInCart =
+        items.find((item) => item.product.id === product.id)?.quantity ?? 0;
     // Calculate the discounted price based on the original price and discount percentage
     const discountedPrice = product.price * (1 - product.discountPercentage / 100);
 
@@ -162,41 +207,66 @@ function Product() {
                     <p className="mt-6 leading-relaxed text-gray-600">
                         {product.description}
                     </p>
-                    <div className="mt-6">
-                        <p className="mb-2 font-medium">Quantity</p>
+                    <div className="mt-6 flex flex-wrap items-end gap-4">
 
-                        <div className="inline-flex items-center rounded-lg border border-gray-300">
-                            <button
-                                type="button"
-                                aria-label="Decrease quantity"
-                                disabled={quantity <= 1 || product.stock === 0}
-                                onClick={() => setQuantity((current) => Math.max(1, current - 1))}
-                                className="rounded-l-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
-                            >
-                                −
-                            </button>
+                        <div className="mt-6">
+                            <p className="mb-2 font-medium">Quantity</p>
 
-                            <span
-                                className="min-w-12 px-3 text-center"
-                                aria-live="polite"
-                                aria-atomic="true"
-                            >
-                                {product.stock === 0 ? 0 : quantity}
-                            </span>
+                            <div className="inline-flex items-center rounded-lg border border-gray-300">
+                                <button
+                                    type="button"
+                                    aria-label="Decrease quantity"
+                                    disabled={quantity <= 1 || product.stock === 0}
+                                    onClick={() => setQuantity((current) => Math.max(1, current - 1))}
+                                    className="rounded-l-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                >
+                                    −
+                                </button>
 
-                            <button
-                                type="button"
-                                aria-label="Increase quantity"
-                                disabled={quantity >= product.stock}
-                                onClick={() =>
-                                    setQuantity((current) => Math.min(product.stock, current + 1))
-                                }
-                                className="rounded-r-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
-                            >
-                                +
-                            </button>
+                                <span
+                                    className="min-w-12 px-3 text-center"
+                                    aria-live="polite"
+                                    aria-atomic="true"
+                                >
+                                    {product.stock === 0 ? 0 : quantity}
+                                </span>
+
+                                <button
+                                    type="button"
+                                    aria-label="Increase quantity"
+                                    disabled={quantity >= product.stock}
+                                    onClick={() =>
+                                        setQuantity((current) => Math.min(product.stock, current + 1))
+                                    }
+                                    className="rounded-r-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                >
+                                    +
+                                </button>
+                            </div>
                         </div>
+                        <button
+                            type="button"
+                            onClick={handleAddToCart}
+                            disabled={product.stock === 0}
+                            className="mt-6 w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-blue-600 sm:w-auto"
+                        >
+                            Add to Cart
+                        </button>
                     </div>
+                    <span
+                        className="mt-3 block text-sm font-medium text-blue-700"
+                        aria-live="polite"
+                        aria-atomic="true"
+                    >
+                        In your cart: {quantityInCart}
+                    </span>
+
+                    <p
+                        role="status"
+                        className="mt-3 text-sm text-gray-700"
+                    >
+                        {cartMessage}
+                    </p>
                 </div>
             </div>
         </section>
