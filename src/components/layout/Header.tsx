@@ -1,11 +1,18 @@
-import { NavLink } from "react-router";
-import { UserRound, ShoppingCart, Moon } from "lucide-react";
+import { NavLink, useNavigate } from "react-router";
+import { UserRound, ShoppingCart, Moon, LogOut } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 
 function Header() {
     //get current user from authentication context
-    const { user } = useAuth();
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
+    // Clear authentication and return to the catalog without changing the cart
+    function handleLogout() {
+        logout();
+        navigate("/", { replace: true });
+    }
 
     // Read the shared cart items
     const { items } = useCart();
@@ -30,6 +37,18 @@ function Header() {
                     >
                         <UserRound size={24} />
                     </NavLink>
+                    {/* Show Logout only when a user is logged in */}
+                    {user !== null && (
+                        <button
+                            type="button"
+                            onClick={handleLogout}
+                            aria-label="Log out"
+                            title="Log out"
+                            className="inline-flex min-h-11 min-w-11 cursor-pointer items-center justify-center rounded text-gray-700 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        >
+                            <LogOut size={24} aria-hidden="true" />
+                        </button>
+                    )}
                     <NavLink
                         to="/cart"
                         aria-label={`Shopping cart, ${itemCount} ${itemCount === 1 ? "item" : "items"}`}
