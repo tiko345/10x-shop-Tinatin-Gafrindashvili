@@ -1,5 +1,4 @@
-import { createContext, useContext, useState } from "react";
-import type { ReactNode } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 import type { Product } from "../types/products";
 import type { CartItem } from "../types/cart";
 
@@ -9,6 +8,7 @@ type CartContextValue = {
     addItem: (product: Product, quantity: number) => void;
     removeItem: (productId: number) => void;
     setQuantity: (productId: number, quantity: number) => void;
+    clearCart: () => void; 
 };
 
 // ReactNode allows the provider to receive JSX content through children
@@ -94,9 +94,13 @@ function CartProvider({ children }: CartProviderProps) {
         );
     }
 
+    // Replace the cart with a new empty array
+    function clearCart() {
+        setItems([]);
+    }
     // Share the cart and its operations with all components inside this provider
     return (
-        <CartContext.Provider value={{ items, addItem, removeItem, setQuantity }}>
+        <CartContext.Provider value={{ items, addItem, removeItem, setQuantity, clearCart }}>
             {children}
         </CartContext.Provider>
     );
