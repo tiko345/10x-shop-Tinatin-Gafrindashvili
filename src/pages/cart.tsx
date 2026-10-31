@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import { useCart } from "../context/CartContext";
 
 function Cart() {
@@ -12,6 +12,8 @@ function Cart() {
 
         return sum + unitPrice * quantity;
     }, 0);
+    const location = useLocation();
+    const redirectedFromCheckout = location.state === "checkout-empty";
 
     // Show an empty state instead of the product list when the cart has no items
     if (items.length === 0) {
@@ -22,7 +24,12 @@ function Cart() {
                 <p className="mt-4 text-gray-600">
                     Your cart is empty.
                 </p>
-
+                
+                {redirectedFromCheckout && (
+                    <p className="mt-2 text-gray-600" role="status">
+                        Add products to your cart before proceeding to checkout.
+                    </p>
+                )}
                 {/* Navigate to the catalog without reloading the page */}
                 <Link
                     to="/"
@@ -143,13 +150,12 @@ function Cart() {
                         Total: ${total.toFixed(2)}
                     </p>
 
-                    <button
-                        type="button"
-                        disabled
-                        className="w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                    <Link
+                        to="/checkout"
+                        className="w-full rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:w-auto"
                     >
                         Proceed to checkout
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section >

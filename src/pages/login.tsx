@@ -1,5 +1,5 @@
 import { useState, type SubmitEvent } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 import { useAuth } from "../context/AuthContext";
 
 type LoginErrors = {
@@ -10,6 +10,9 @@ type LoginErrors = {
 function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    // Return to checkout only when the guard supplied that destination
+    const destination = location.state === "/checkout" ? "/checkout" : "/";
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -39,7 +42,7 @@ function Login() {
 
         login(username.trim());
         setPassword("");
-        navigate("/", { replace: true });
+        navigate(destination, { replace: true });
     }
     return (
         <section className="mx-auto my-10 w-full max-w-md rounded-2xl bg-blue-100 px-6 py-8 text-slate-900 shadow-lg">
