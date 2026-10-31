@@ -83,25 +83,25 @@ Prioritize CORE requirements before adding optional features
 - [x] Connect Add to Cart using the selected quantity
 - [x] Implement cart quantity controls and product removal
 - [x] Display line totals, overall total, and an empty-cart state
-- [ ] Display subtotal alongside total
-- [ ] Connect the Header badge to the total cart quantity
-- [ ] Connect the Proceed to checkout link
+- [x] Display subtotal alongside total
+- [x] Connect the Header badge to the total cart quantity
+- [x] Connect the Proceed to checkout link
 
 #### Checkout and Authentication
 
-- [ ] Complete Checkout route protection
-- [ ] Return users to Checkout after login
-- [ ] Handle opening Checkout with an empty cart
-- [ ] Implement controlled Full name, Email, Address, and City fields
-- [ ] Validate required Checkout fields
-- [ ] Display the order summary and total
-- [ ] Simulate order placement
-- [ ] Display confirmation and clear the cart
+- [x] Complete Checkout route protection
+- [x] Return users to Checkout after login
+- [x] Handle opening Checkout with an empty cart
+- [x] Implement controlled Full name, Email, Address, and City fields
+- [x] Validate required Checkout fields
+- [x] Display the order summary and total
+- [x] Simulate order placement
+- [x] Display confirmation and clear the cart
 
 #### Testing and Quality
 
-- [ ] Test the complete shopping journey
-- [ ] Verify stock limits, duplicate products, and cart calculations
+- [x] Test the complete shopping journey
+- [x] Verify stock limits, duplicate products, and cart calculations
 - [ ] Check loading, error, empty, and invalid-route states
 - [ ] Check mobile and desktop layouts
 - [ ] Verify form labels, image alt text, and visible keyboard focus
