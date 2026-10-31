@@ -6,12 +6,12 @@ Project Type: Individual Front-End Graduation Project
 Development Period: October 21 – November 6, 2026
 Submission Deadline: November 6, 2026, 23:59 (Georgia time)
 
-1. Project Goal
+## 1. Project Goal
 The goal of this project is to develop a responsive e-commerce Single Page Application using React, TypeScript, Tailwind CSS, and the DummyJSON API.
 Users will be able to browse products, view product details, manage a shopping cart, log in through simulated authentication, and complete a simulated checkout process.
 The project will demonstrate React component architecture, TypeScript type safety, state management, API integration, responsive design, and Git version control.
 
-2. Technology Stack
+## 2. Technology Stack
 React 19 — User interface and component development
 TypeScript — Static typing and type safety
 Vite — Development environment and build tool
@@ -23,7 +23,7 @@ Git and GitHub — Version control
 Vercel or Netlify — Deployment
 
 
-3. Project Scope
+## 3. Project Scope
 CORE — Required Features
 
 Authentication
@@ -55,17 +55,63 @@ Checkout
 - show confirmation and clear the cart
 
 
-4. Weekly Development Plan
+## 4. Weekly Development Plan
 
-Week 1 
-Foundations, Authentication, and Catalog
-- initialize the React and TypeScript project.
-- configure Tailwind CSS v4.
-- create the initial folder structure.
-- configure Git and GitHub.
-- write PLAN.md.
-- define necessary TypeScript types.
-- set up React Router and shared layout.
-- implement Login and AuthContext.
-- protect Checkout from unauthenticated users.
-- fetch and display products from DummyJSON.
+### Week 1 — Foundations, Authentication, and Catalog
+
+- [x] Initialize the React and TypeScript project
+- [x] Configure Tailwind CSS v4
+- [x] Create the initial folder structure
+- [x] Configure Git and GitHub
+- [x] Write PLAN.md
+- [x] Define initial TypeScript types
+- [x] Set up React Router and shared layout
+- [x] Implement Login and AuthContext
+- [x] Fetch and display products from DummyJSON
+- [ ] Protect Checkout from unauthenticated users — carried forward to Week 2
+
+### Week 2 — Product Details, Cart, Checkout, and Final Submission
+
+Complete the project by November 6, 2026
+Prioritize CORE requirements before adding optional features
+
+#### Product Details and Cart
+
+- [x] Display product information, stock, and images
+- [x] Implement image and quantity selection
+- [x] Create CartContext with immutable state updates
+- [x] Connect Add to Cart using the selected quantity
+- [x] Implement cart quantity controls and product removal
+- [x] Display line totals, overall total, and an empty-cart state
+- [ ] Display subtotal alongside total
+- [ ] Connect the Header badge to the total cart quantity
+- [ ] Connect the Proceed to checkout link
+
+#### Checkout and Authentication
+
+- [ ] Complete Checkout route protection
+- [ ] Return users to Checkout after login
+- [ ] Handle opening Checkout with an empty cart
+- [ ] Implement controlled Full name, Email, Address, and City fields
+- [ ] Validate required Checkout fields
+- [ ] Display the order summary and total
+- [ ] Simulate order placement
+- [ ] Display confirmation and clear the cart
+
+#### Testing and Quality
+
+- [ ] Test the complete shopping journey
+- [ ] Verify stock limits, duplicate products, and cart calculations
+- [ ] Check loading, error, empty, and invalid-route states
+- [ ] Check mobile and desktop layouts
+- [ ] Verify form labels, image alt text, and visible keyboard focus
+- [ ] Run TypeScript checks and the production build
+
+#### Documentation and Deployment
+
+- [ ] Complete README.md
+- [ ] Complete REPORT.md and document AI usage
+- [ ] Update PLAN.md with final progress
+- [ ] Deploy to Vercel or Netlify
+- [ ] Verify navigation and direct route access on the live site
+- [ ] Prepare the final GitHub repository and deployment links
