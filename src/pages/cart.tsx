@@ -24,7 +24,7 @@ function Cart() {
                 <p className="mt-4 text-gray-600">
                     Your cart is empty.
                 </p>
-                
+
                 {redirectedFromCheckout && (
                     <p className="mt-2 text-gray-600" role="status">
                         Add products to your cart before proceeding to checkout.
@@ -146,9 +146,18 @@ function Cart() {
 
                 {/* Keep the total and checkout together */}
                 <div className="flex flex-col gap-4 sm:items-end">
-                    <p className="text-xl font-bold">
-                        Total: ${total.toFixed(2)}
-                    </p>
+                    {/* Subtotal includes product discounts and matches total without extra charges */}
+                    <div className="w-full space-y-3 sm:min-w-64">
+                        <div className="flex justify-between gap-8 text-gray-600">
+                            <span>Subtotal</span>
+                            <span>${total.toFixed(2)}</span>
+                        </div>
+
+                        <div className="flex justify-between gap-8 border-t border-gray-200 pt-3 text-xl font-bold">
+                            <span>Total</span>
+                            <span>${total.toFixed(2)}</span>
+                        </div>
+                    </div>
 
                     <Link
                         to="/checkout"
