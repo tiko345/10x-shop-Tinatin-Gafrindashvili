@@ -144,6 +144,19 @@ function Catalog() {
                     onCategoryChange={selectCategory}
                 />
             </div>
+            {/* Show feedback while products are being fetched */}
+            {loading && (
+                <div
+                    role="status"
+                    className="flex items-center justify-center gap-3 py-6 text-teal-700"
+                >
+                    <span
+                        aria-hidden="true"
+                        className="h-5 w-5 rounded-full border-2 border-teal-200 border-t-teal-700 motion-safe:animate-spin"
+                    />
+                    <span>Loading products...</span>
+                </div>
+            )}
             {error ? (// Display an error message if there is an error
                 <p role="alert" className="text-red-600">
                     {error}

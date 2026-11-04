@@ -102,16 +102,16 @@ Prioritize CORE requirements before adding optional features
 
 - [x] Test the complete shopping journey
 - [x] Verify stock limits, duplicate products, and cart calculations
-- [ ] Check loading, error, empty, and invalid-route states
-- [ ] Check mobile and desktop layouts
-- [ ] Verify form labels, image alt text, and visible keyboard focus
-- [ ] Run TypeScript checks and the production build
+- [x] Check loading, error, empty, and invalid-route states
+- [x] Check mobile and desktop layouts
+- [x] Verify form labels, image alt text, and visible keyboard focus
+- [x] Run TypeScript checks and the production build
 
 #### Documentation and Deployment
 
 - [ ] Complete README.md
 - [ ] Complete REPORT.md and document AI usage
 - [ ] Update PLAN.md with final progress
-- [ ] Deploy to Vercel or Netlify
+- [x] Deploy to Vercel or Netlify
 - [ ] Verify navigation and direct route access on the live site
 - [ ] Prepare the final GitHub repository and deployment links
