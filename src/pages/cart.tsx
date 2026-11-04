@@ -33,7 +33,7 @@ function Cart() {
                 {/* Navigate to the catalog without reloading the page */}
                 <Link
                     to="/"
-                    className="mt-6 inline-block rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                    className="mt-6 inline-block rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                     Browse products
                 </Link>
@@ -59,20 +59,20 @@ function Cart() {
                         // Use a stable product ID so React can identify each list item
                         <li
                             key={product.id}
-                            className="flex flex-col gap-4 rounded-xl border border-gray-200 p-4 sm:flex-row sm:items-center"
+                            className="flex flex-col gap-4 rounded-2xl border border-teal-200 bg-teal-50 p-5 shadow-md shadow-teal-900/10 sm:flex-row sm:items-center"
                         >
                             {/* Stack content on mobile and arrange it in a row on larger screens */}
                             <img
                                 src={product.thumbnail}
                                 alt={product.title}
-                                className="h-32 w-32 shrink-0 object-contain"
+                                className="h-32 w-32 shrink-0 rounded-xl border border-teal-100 bg-white/60 p-2 object-contain"
                             />
 
                             <div className="min-w-0 flex-1">
                                 {/* Open this product's details using its ID */}
                                 <Link
                                     to={`/products/${product.id}`}
-                                    className="break-words text-lg font-semibold hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                                    className="break-words text-lg font-semibold hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                                 >
                                     {product.title}
                                 </Link>
@@ -82,14 +82,14 @@ function Cart() {
                                     Unit price: ${unitPrice.toFixed(2)}
                                 </p>
 
-                                <div className="mt-3 inline-flex items-center rounded-lg border border-gray-300">
+                                <div className="mt-3 inline-flex items-center rounded-lg border border-teal-200">
                                     {/* Decrease the shared quantity and stop at a minimum of one */}
                                     <button
                                         type="button"
                                         aria-label={`Decrease quantity of ${product.title}`}
                                         disabled={quantity <= 1}
                                         onClick={() => setQuantity(product.id, quantity - 1)}
-                                        className="rounded-l-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                        className="rounded-l-lg px-4 py-2 hover:bg-teal-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
                                     >
                                         −
                                     </button>
@@ -109,7 +109,7 @@ function Cart() {
                                         aria-label={`Increase quantity of ${product.title}`}
                                         disabled={quantity >= product.stock}
                                         onClick={() => setQuantity(product.id, quantity + 1)}
-                                        className="rounded-r-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                        className="rounded-r-lg px-4 py-2 hover:bg-teal-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
                                     >
                                         +
                                     </button>
@@ -139,13 +139,13 @@ function Cart() {
             <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
                 <Link
                     to="/"
-                    className="text-blue-700 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                    className="text-teal-700 hover:text-teal-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                     Continue shopping
                 </Link>
 
                 {/* Keep the total and checkout together */}
-                <div className="flex flex-col gap-4 sm:items-end">
+                <div className="flex flex-col gap-4 rounded-2xl border border-teal-200 bg-teal-50 p-6 shadow-md shadow-teal-900/10 sm:items-end">
                     {/* Subtotal includes product discounts and matches total without extra charges */}
                     <div className="w-full space-y-3 sm:min-w-64">
                         <div className="flex justify-between gap-8 text-gray-600">
@@ -153,7 +153,7 @@ function Cart() {
                             <span>${total.toFixed(2)}</span>
                         </div>
 
-                        <div className="flex justify-between gap-8 border-t border-gray-200 pt-3 text-xl font-bold">
+                        <div className="flex justify-between gap-8 border-t border-teal-200 pt-3 text-xl font-bold">
                             <span>Total</span>
                             <span>${total.toFixed(2)}</span>
                         </div>
@@ -161,7 +161,7 @@ function Cart() {
 
                     <Link
                         to="/checkout"
-                        className="w-full rounded-lg bg-blue-600 px-6 py-3 text-center font-semibold text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:w-auto"
+                        className="w-full rounded-lg bg-teal-700 px-6 py-3 text-center font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 sm:w-auto"
                     >
                         Proceed to checkout
                     </Link>

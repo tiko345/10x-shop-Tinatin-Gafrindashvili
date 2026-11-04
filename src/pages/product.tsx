@@ -173,11 +173,11 @@ function Product() {
         product.price * (1 - product.discountPercentage / 100);
 
     return (
-        <section className="mx-auto max-w-6xl px-4 py-10">
+        <section className="mx-auto w-full max-w-6xl px-4 py-10">
             {/* Stack on small screens; use two columns from the md breakpoint */}
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-8 rounded-2xl border border-teal-200 bg-teal-50 p-5 shadow-xl shadow-teal-900/10 sm:p-8 md:grid-cols-2">
                 <div>
-                    <div className="rounded-xl border border-gray-200 p-6">
+                    <div className="rounded-xl border border-teal-100 bg-white/60 p-6">
                         {/* Fall back to the thumbnail if the selected image is unavailable */}
                         <img
                             src={product.images[selectedImage] || product.thumbnail}
@@ -196,11 +196,10 @@ function Product() {
                                     onClick={() => setSelectedImage(index)}
                                     aria-label={`Show image ${index + 1} of ${product.title}`}
                                     aria-pressed={selectedImage === index}
-                                    className={`rounded-lg border-2 p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 ${
-                                        selectedImage === index
-                                            ? "border-gray-900"
-                                            : "border-gray-200 hover:border-gray-400"
-                                    }`}
+                                    className={`rounded-lg border-2 bg-white/60 p-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 ${selectedImage === index
+                                        ? "border-teal-600"
+                                        : "border-teal-100 hover:border-teal-400"
+                                        }`}
                                 >
                                     {/* The button already provides an accessible label */}
                                     <img
@@ -217,7 +216,7 @@ function Product() {
                 <div>
                     <h1 className="text-3xl font-bold">{product.title}</h1>
 
-                    <div className="mt-4 flex items-center gap-3">
+                    <div className="mt-4 flex flex-wrap items-center gap-3">
                         {/* toFixed formats the displayed price to two decimal places */}
                         <span className="text-2xl font-bold">
                             ${discountedPrice.toFixed(2)}
@@ -239,13 +238,12 @@ function Product() {
 
                     {/* Match the stock message and its color to availability */}
                     <p
-                        className={`mt-4 font-medium ${
-                            product.stock === 0
-                                ? "text-red-600"
-                                : product.stock <= 5
-                                    ? "text-orange-600"
-                                    : "text-green-700"
-                        }`}
+                        className={`mt-4 font-medium ${product.stock === 0
+                            ? "text-red-600"
+                            : product.stock <= 5
+                                ? "text-orange-600"
+                                : "text-green-700"
+                            }`}
                     >
                         {product.stock === 0
                             ? "Out of stock"
@@ -313,7 +311,7 @@ function Product() {
                             type="button"
                             onClick={handleAddToCart}
                             disabled={product.stock === 0}
-                            className="mt-6 w-full rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-blue-600 sm:w-auto"
+                            className="mt-6 w-full rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-teal-700 sm:w-auto"
                         >
                             Add to Cart
                         </button>
@@ -321,7 +319,7 @@ function Product() {
 
                     {/* Show this product's total quantity currently in the cart */}
                     <span
-                        className="mt-3 block text-sm font-medium text-blue-700"
+                        className="mt-3 block text-sm font-medium text-teal-700"
                         aria-live="polite"
                         aria-atomic="true"
                     >

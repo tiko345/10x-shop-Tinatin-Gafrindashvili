@@ -125,8 +125,10 @@ function Catalog() {
         resetPage();
     }
     return (
-        <section className="mx-auto w-full min-w-0 max-w-7xl px-4 py-8">
-            <h1 className="mb-6 text-3xl font-bold">Catalog</h1>
+        <section className="mx-auto w-full min-w-0 max-w-7xl px-10 py-10 sm:px-12 lg:px-14">
+            <h1 className="mb-6 text-3xl font-bold tracking-tight text-slate-900">
+                Catalog
+            </h1>
             <div className="mb-8 min-w-0 space-y-4">
                 <CatalogToolbar
                     query={query}

@@ -2,20 +2,19 @@ import { NavLink } from "react-router";
 
 function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row">
-
+    <footer className="border-t border-teal-200 bg-teal-50 text-slate-700">
+      {/* Stack footer content on mobile and align horizontally on larger screens */}
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <NavLink
           to="/"
-          className="text-lg font-bold text-blue-600"
+          className="rounded text-lg font-bold tracking-tight text-teal-300 transition-colors hover:text-teal-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-300"
         >
           10X Shop
         </NavLink>
 
-        <p className="text-sm text-gray-500">
+        <p className="text-center text-sm text-slate-300">
           © {new Date().getFullYear()} 10X Shop. All rights reserved.
         </p>
-
       </div>
     </footer>
   );

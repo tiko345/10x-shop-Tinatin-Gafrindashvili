@@ -35,7 +35,7 @@ class ErrorBoundary extends Component<
                 <main className="mx-auto w-full max-w-xl px-4 py-16">
                     <div
                         role="alert"
-                        className="rounded-2xl border border-blue-200 bg-blue-50 p-8 text-center"
+                        className="rounded-2xl border border-teal-200 bg-teal-50 p-8 text-center shadow-lg shadow-teal-900/10"
                     >
                         <h1 className="text-2xl font-bold text-slate-900">
                             Something went wrong.
@@ -48,7 +48,7 @@ class ErrorBoundary extends Component<
                         <button
                             type="button"
                             onClick={() => window.location.reload()}
-                            className="mt-6 rounded-lg bg-blue-700 px-6 py-3 font-semibold text-white hover:bg-blue-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            className="mt-6 rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                         >
                             Reload
                         </button>

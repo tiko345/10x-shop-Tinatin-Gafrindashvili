@@ -15,7 +15,7 @@ function Pagination({
   if (pageCount <= 1) return null;
 
   const navigationClass =
-    "h-9 rounded-md px-3 text-sm font-medium text-gray-600 transition-colors hover:bg-blue-50 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-40";
+    "h-11 rounded-lg px-3 text-sm font-medium text-slate-600 transition-colors hover:bg-teal-100 hover:text-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-40";
 
   return (
     <nav
@@ -41,11 +41,10 @@ function Pagination({
             onClick={() => onPageChange(pageNumber)}
             disabled={loading}
             aria-current={page === pageNumber ? "page" : undefined}
-            className={`flex h-9 min-w-9 items-center justify-center rounded-md px-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-blue-600 disabled:cursor-not-allowed disabled:opacity-50 ${
-              page === pageNumber
-                ? "bg-blue-600 text-white shadow-sm"
-                : "text-gray-600 hover:bg-blue-50 hover:text-blue-600"
-            }`}
+            className={`flex h-11 min-w-11 items-center justify-center rounded-lg px-2 text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-50 ${page === pageNumber
+                ? "bg-teal-700 text-white shadow-sm"
+                : "text-slate-600 hover:bg-teal-100 hover:text-teal-800"
+              }`}
           >
             {pageNumber}
           </button>
