@@ -45,7 +45,7 @@ function Login() {
         navigate(destination, { replace: true });
     }
     return (
-        <section className="mx-auto my-10 w-full max-w-md rounded-2xl border border-teal-200 bg-teal-50 px-6 py-8 text-slate-900 shadow-lg shadow-teal-900/10">
+        <section className="mx-auto my-10 w-full max-w-md rounded-2xl border border-teal-200 bg-teal-50 px-6 py-8 text-slate-900 shadow-lg shadow-teal-900/10 dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100 dark:shadow-black/20">
             <h1 className="mb-6 text-3xl font-bold">Log in</h1>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-4">
@@ -63,10 +63,10 @@ function Login() {
                         autoComplete="username"
                         value={username}
                         onChange={(event) => setUsername(event.target.value)}
-                        className="w-full rounded-lg border border-teal-300 bg-white/60 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/60 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.username && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.username}
                         </p>
                     )}
@@ -86,17 +86,17 @@ function Login() {
                         autoComplete="current-password"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
-                        className="w-full rounded-lg border border-teal-300 bg-white/60 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/60 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.password && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.password}
                         </p>
                     )}
                 </div>
                 <button
                     type="submit"
-                    className="w-full rounded-lg bg-teal-700 px-4 py-3 font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600"
+                    className="w-full rounded-lg bg-teal-700 px-4 py-3 font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-teal-200 dark:focus-visible:outline-teal-400"
                 >
                     Log In
                 </button>
@@ -104,7 +104,7 @@ function Login() {
 
             <Link
                 to="/"
-                className="mt-6 inline-block rounded text-teal-700 hover:text-teal-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600"
+                className="mt-6 inline-block rounded text-teal-700 hover:text-teal-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-600 dark:text-teal-300 dark:hover:text-teal-200 dark:focus-visible:outline-teal-400"
             >
                 ← Back to catalog
             </Link>

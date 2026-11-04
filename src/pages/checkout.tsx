@@ -128,35 +128,35 @@ function Checkout() {
         return (
             <section className="mx-auto w-full max-w-4xl px-4 py-10">
                 {/* Stack on mobile and arrange the card horizontally on larger screens */}
-                <div className="flex flex-col gap-6 rounded-2xl border border-teal-200 bg-teal-50 p-6 shadow-lg shadow-teal-900/10 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+                <div className="flex flex-col gap-6 rounded-2xl border border-teal-200 bg-teal-50 p-6 shadow-lg shadow-teal-900/10 sm:flex-row sm:items-center sm:justify-between sm:p-8 dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100 dark:shadow-black/20">
                     <div className="min-w-0">
-                        <h1 className="text-3xl font-bold text-slate-900">
+                        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
                             Thank you!
                         </h1>
 
-                        <p className="mt-3 text-green-700" role="status">
+                        <p className="mt-3 text-green-700 dark:text-green-300" role="status">
                             Your order has been placed.
                         </p>
 
-                        <p className="mt-2 break-words text-slate-600">
+                        <p className="mt-2 break-words text-slate-600 dark:text-slate-300">
                             Thank you for shopping with us, {order.shipping.fullName}.
                         </p>
                     </div>
 
                     {/* Separate the order total and navigation from the message */}
-                    <div className="flex shrink-0 flex-col gap-4 border-t border-teal-200 pt-6 sm:items-end sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
+                    <div className="flex shrink-0 flex-col gap-4 border-t border-teal-200 pt-6 sm:items-end sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6 dark:border-teal-800">
                         <div>
-                            <p className="text-sm text-slate-600">
+                            <p className="text-sm text-slate-600 dark:text-slate-300">
                                 Order total
                             </p>
-                            <p className="text-2xl font-bold text-slate-900">
+                            <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                                 ${order.total.toFixed(2)}
                             </p>
                         </div>
 
                         <Link
                             to="/"
-                            className="rounded-lg bg-teal-700 px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                            className="rounded-lg bg-teal-700 px-5 py-3 text-center font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-teal-200 dark:focus-visible:outline-teal-400"
                         >
                             Continue shopping
                         </Link>
@@ -202,10 +202,10 @@ function Checkout() {
                         onChange={(event) =>
                             updateField("fullName", event.target.value)
                         }
-                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.fullName && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.fullName}
                         </p>
                     )}
@@ -229,10 +229,10 @@ function Checkout() {
                         onChange={(event) =>
                             updateField("email", event.target.value)
                         }
-                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.email && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.email}
                         </p>
                     )}
@@ -257,10 +257,10 @@ function Checkout() {
                         onChange={(event) =>
                             updateField("address", event.target.value)
                         }
-                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.address && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.address}
                         </p>
                     )}
@@ -285,10 +285,10 @@ function Checkout() {
                         onChange={(event) =>
                             updateField("city", event.target.value)
                         }
-                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+                        className="w-full rounded-lg border border-teal-300 bg-white/70 px-3 py-2 text-slate-900 focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-700 dark:bg-[#1c4039] dark:text-slate-100 dark:focus:border-teal-400 dark:focus:ring-teal-400"
                     />
                     {errors.city && (
-                        <p className="mt-1 text-sm text-red-700" role="alert">
+                        <p className="mt-1 text-sm text-red-700 dark:text-red-400" role="alert">
                             {errors.city}
                         </p>
                     )}
@@ -296,7 +296,7 @@ function Checkout() {
                 {/* Display the products being ordered from shared cart state */}
                 <section
                     aria-labelledby="order-summary-heading"
-                    className="rounded-xl border border-gray-200 bg-gray-50 p-4"
+                    className="rounded-xl border border-teal-200 bg-teal-50 p-4 shadow-sm dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100"
                 >
                     <h2
                         id="order-summary-heading"
@@ -305,7 +305,7 @@ function Checkout() {
                         Order summary
                     </h2>
 
-                    <ul className="mt-4 divide-y divide-teal-200">
+                    <ul className="mt-4 divide-y divide-teal-200 dark:divide-teal-800">
                         {items.map(({ product, quantity }) => {
                             // Apply the product discount before multiplying by quantity
                             const unitPrice =
@@ -322,7 +322,7 @@ function Checkout() {
                                             {product.title}
                                         </p>
 
-                                        <p className="mt-1 text-sm text-gray-600">
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-slate-300">
                                             ${unitPrice.toFixed(2)} × {quantity}
                                         </p>
                                     </div>
@@ -336,7 +336,7 @@ function Checkout() {
                     </ul>
 
                     {/* Format the total for display without changing the calculation */}
-                    <div className="mt-4 flex items-center justify-between gap-4 border-t border-teal-200 pt-4 text-lg font-bold">
+                    <div className="mt-4 flex items-center justify-between gap-4 border-t border-teal-200 pt-4 text-lg font-bold dark:border-teal-700">
                         <span>Total</span>
                         <span>${total.toFixed(2)}</span>
                     </div>
@@ -346,7 +346,7 @@ function Checkout() {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-teal-200 dark:focus-visible:outline-teal-400"
                 >
                     {isSubmitting ? "Placing order..." : "Place order"}
                 </button>

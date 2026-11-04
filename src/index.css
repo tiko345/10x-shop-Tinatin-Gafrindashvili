@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Apply dark utilities when the HTML element has the dark class */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
     body {
         margin: 0;
@@ -7,18 +10,28 @@
         color: #0f172a;
         background-color: #f0fdfa;
         background-image:
-            radial-gradient(
-                ellipse at top left,
+            radial-gradient(ellipse at top left,
                 rgba(45, 212, 191, 0.18),
-                transparent 70%
-            ),
-            radial-gradient(
-                ellipse at bottom right,
+                transparent 70%),
+            radial-gradient(ellipse at bottom right,
                 rgba(125, 211, 252, 0.2),
-                transparent 70%
-            ),
+                transparent 70%),
             linear-gradient(135deg, #f0fdfa, #f8fafc 55%, #eff6ff);
         background-attachment: fixed;
+    }
+
+    /* Use deep green surfaces with subtle teal highlights */
+    html.dark body {
+        color: #e2e8f0;
+        background-color: #071f1c;
+        background-image:
+            radial-gradient(ellipse at top left,
+                rgba(20, 184, 166, 0.12),
+                transparent 70%),
+            radial-gradient(ellipse at bottom right,
+                rgba(13, 148, 136, 0.1),
+                transparent 70%),
+            linear-gradient(135deg, #071f1c, #102a26 55%, #0b2421);
     }
 
     ::selection {

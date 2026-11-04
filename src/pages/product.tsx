@@ -154,7 +154,7 @@ function Product() {
 
     if (error) {
         return (
-            <p className="px-4 py-10 text-red-600" role="alert">
+            <p className="px-4 py-10 text-red-600 dark:text-red-400" role="alert">
                 {error}
             </p>
         );
@@ -175,9 +175,9 @@ function Product() {
     return (
         <section className="mx-auto w-full max-w-6xl px-4 py-10">
             {/* Stack on small screens; use two columns from the md breakpoint */}
-            <div className="grid gap-8 rounded-2xl border border-teal-200 bg-teal-50 p-5 shadow-xl shadow-teal-900/10 sm:p-8 md:grid-cols-2">
+            <div className="grid gap-8 rounded-2xl border border-teal-200 bg-teal-50 p-5 shadow-xl shadow-teal-900/10 sm:p-8 md:grid-cols-2 dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100 dark:shadow-black/20">
                 <div>
-                    <div className="rounded-xl border border-teal-100 bg-white/60 p-6">
+                    <div className="rounded-xl border border-teal-100 bg-white/60 p-6 dark:border-teal-800 dark:bg-[#1c4039]">
                         {/* Fall back to the thumbnail if the selected image is unavailable */}
                         <img
                             src={product.images[selectedImage] || product.thumbnail}
@@ -196,9 +196,9 @@ function Product() {
                                     onClick={() => setSelectedImage(index)}
                                     aria-label={`Show image ${index + 1} of ${product.title}`}
                                     aria-pressed={selectedImage === index}
-                                    className={`rounded-lg border-2 bg-white/60 p-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 ${selectedImage === index
-                                        ? "border-teal-600"
-                                        : "border-teal-100 hover:border-teal-400"
+                                    className={`rounded-lg border-2 bg-white/60 p-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 dark:bg-[#1c4039] dark:focus-visible:outline-teal-400 ${selectedImage === index
+                                        ? "border-teal-600 dark:border-teal-300"
+                                        : "border-teal-100 hover:border-teal-400 dark:border-teal-800 dark:hover:border-teal-500"
                                         }`}
                                 >
                                     {/* The button already provides an accessible label */}
@@ -225,7 +225,7 @@ function Product() {
                         {/* Show the original price and discount only when discounted */}
                         {product.discountPercentage > 0 && (
                             <>
-                                <span className="text-gray-500 line-through">
+                                <span className="text-gray-500 line-through dark:text-slate-400">
                                     ${product.price.toFixed(2)}
                                 </span>
 
@@ -239,10 +239,10 @@ function Product() {
                     {/* Match the stock message and its color to availability */}
                     <p
                         className={`mt-4 font-medium ${product.stock === 0
-                            ? "text-red-600"
+                            ? "text-red-600 dark:text-red-400"
                             : product.stock <= 5
-                                ? "text-orange-600"
-                                : "text-green-700"
+                                ? "text-orange-600 dark:text-orange-300"
+                                : "text-green-700 dark:text-green-300"
                             }`}
                     >
                         {product.stock === 0
@@ -252,7 +252,7 @@ function Product() {
                                 : "In stock"}
                     </p>
 
-                    <p className="mt-6 leading-relaxed text-gray-600">
+                    <p className="mt-6 leading-relaxed text-gray-600 dark:text-slate-300">
                         {product.description}
                     </p>
 
@@ -262,7 +262,7 @@ function Product() {
                         <div className="mt-6">
                             <p className="mb-2 font-medium">Quantity</p>
 
-                            <div className="inline-flex items-center rounded-lg border border-gray-300">
+                            <div className="inline-flex items-center rounded-lg border border-gray-300 dark:border-teal-700">
                                 <button
                                     type="button"
                                     aria-label="Decrease quantity"
@@ -273,7 +273,7 @@ function Product() {
                                             Math.max(1, current - 1)
                                         )
                                     }
-                                    className="rounded-l-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                    className="rounded-l-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent dark:hover:bg-teal-900 dark:focus-visible:outline-teal-400 dark:disabled:hover:bg-transparent"
                                 >
                                     −
                                 </button>
@@ -299,7 +299,7 @@ function Product() {
                                             Math.min(product.stock, current + 1)
                                         )
                                     }
-                                    className="rounded-r-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent"
+                                    className="rounded-r-lg px-4 py-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-40 dark:hover:bg-teal-900 dark:focus-visible:outline-teal-400 dark:disabled:hover:bg-transparent disabled:hover:bg-transparent"
                                 >
                                     +
                                 </button>
@@ -311,7 +311,7 @@ function Product() {
                             type="button"
                             onClick={handleAddToCart}
                             disabled={product.stock === 0}
-                            className="mt-6 w-full rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-teal-700 sm:w-auto"
+                            className="mt-6 w-full rounded-lg bg-teal-700 px-6 py-3 font-semibold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-teal-700 sm:w-auto dark:bg-teal-300 dark:text-teal-950 dark:hover:bg-teal-200 dark:focus-visible:outline-teal-400 dark:disabled:hover:bg-teal-300"
                         >
                             Add to Cart
                         </button>
@@ -319,7 +319,7 @@ function Product() {
 
                     {/* Show this product's total quantity currently in the cart */}
                     <span
-                        className="mt-3 block text-sm font-medium text-teal-700"
+                        className="mt-3 block text-sm font-medium text-teal-700 dark:text-teal-300"
                         aria-live="polite"
                         aria-atomic="true"
                     >
@@ -329,7 +329,7 @@ function Product() {
                     {/* role="status" announces success and stock-limit feedback */}
                     <p
                         role="status"
-                        className="mt-3 text-sm text-gray-700"
+                        className="mt-3 text-sm text-gray-700 dark:text-slate-300"
                     >
                         {cartMessage}
                     </p>

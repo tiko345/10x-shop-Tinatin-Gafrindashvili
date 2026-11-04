@@ -28,7 +28,7 @@ function CatalogToolbar({
           value={query}
           onChange={(event) => onQueryChange(event.target.value)}
           placeholder="Search by name..."
-          className="min-h-11 w-full min-w-0 rounded-lg border border-teal-200 bg-white/70 px-4 py-2 text-slate-900 shadow-sm focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+          className="min-h-11 w-full min-w-0 rounded-lg border border-teal-200 bg-white/70 px-4 py-2 text-slate-900 shadow-sm focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-teal-400 dark:focus:ring-teal-400"
         />
       </div>
 
@@ -56,7 +56,7 @@ function CatalogToolbar({
               onSortChange(value);
             }
           }}
-          className="min-h-11 w-full min-w-0 rounded-lg border border-teal-200 bg-white/70 px-4 py-2 text-slate-900 shadow-sm focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600"
+          className="min-h-11 w-full min-w-0 rounded-lg border border-teal-200 bg-white/70 px-4 py-2 text-slate-900 shadow-sm focus:border-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-600 dark:border-teal-800 dark:bg-[#14332e] dark:text-slate-100 dark:placeholder:text-slate-400 dark:focus:border-teal-400 dark:focus:ring-teal-400"
         >
 
           <option value="">Default</option>
