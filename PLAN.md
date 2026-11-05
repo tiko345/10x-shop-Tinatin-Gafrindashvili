@@ -91,7 +91,7 @@ Checkout
 - [x] Set up React Router and shared layout
 - [x] Implement Login and AuthContext
 - [x] Fetch and display products from DummyJSON
-- [ ] Protect Checkout from unauthenticated users — carried forward to Week 2
+- [x] Protect Checkout from unauthenticated users — carried forward to Week 2
 
 ### Week 2 — Product Details, Cart, Checkout, and Final Submission
 
@@ -132,19 +132,18 @@ Prioritize CORE requirements before adding optional features
 - [x] Run TypeScript checks and the production build
 - [x] Apply consistent mint and teal styling across pages
 - [x] Implement light/dark mode with a saved theme preference
-- [ ] Run the final ESLint check
-- [ ] Verify the latest version in Chrome and Firefox
-- [ ] Run Lighthouse on the deployed site and save the report
+- [x] Run the final lint check using npm run lint
+- [x] Verify the latest version in Chrome and Firefox
 
 
 #### Documentation and Deployment
 
-- [ ] Complete README.md
-- [ ] Complete DEBUG-LOG.md with at least three real bugs and fixes
-- [ ] Complete REPORT.md and document AI usage
+- [x] Complete README.md
+- [x] Complete DEBUG-LOG.md with at least three real bugs and fixes
+- [x] Complete REPORT.md and document AI usage
 - [x] Update PLAN.md with current progress
 - [x] Deploy to Vercel or Netlify
-- [ ] Verify navigation and direct route access on the live site
-- [ ] Confirm the deployment includes the latest committed changes
-- [ ] Prepare the final GitHub repository and deployment links
-- [ ] Submit the repository by November 6, 2026, at 23:59 Georgia time
+- [x] Verify navigation and direct route access on the live site
+- [x] Confirm the deployment includes the latest committed changes
+- [x] Prepare the final GitHub repository and deployment links
+- [x] Submit the repository by November 6, 2026, at 23:59 Georgia time
