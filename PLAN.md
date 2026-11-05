@@ -12,15 +12,15 @@ Users will be able to browse products, view product details, manage a shopping c
 The project will demonstrate React component architecture, TypeScript type safety, state management, API integration, responsive design, and Git version control.
 
 ## 2. Technology Stack
-React 19 — User interface and component development
-TypeScript — Static typing and type safety
-Vite — Development environment and build tool
-Tailwind CSS v4 — Responsive styling
-React Router — Client-side navigation
-React Context API — Authentication and cart state management
-DummyJSON API — Product data
-Git and GitHub — Version control
-Vercel or Netlify — Deployment
+- React 19 — User interface and component development
+- TypeScript — Static typing and type safety
+- Vite — Development environment and build tool
+- Tailwind CSS v4 — Responsive styling
+- React Router — Client-side navigation
+- React Context API — Authentication, cart, and theme state management
+- DummyJSON API — Product data
+- Git and GitHub — Version control
+- Vercel — Deployment
 
 
 ## 3. Project Scope
@@ -53,6 +53,29 @@ Checkout
 - display order summary
 - simulate order placement
 - show confirmation and clear the cart
+
+### Reliability and User Interface
+
+- Error Boundary with a fallback message and Reload button
+- Responsive layouts and accessible form labels
+- Visible keyboard focus and descriptive image alt text
+- Consistent mint and teal styling
+
+### Additional Implemented Features
+
+- Product search
+- Category filtering
+- Product sorting
+- Pagination
+- Light and dark themes
+- Theme preference saved in localStorage
+
+### Scope Limitations
+
+- Authentication is simulated locally
+- Cart and login state reset after a page refresh
+- Orders are simulated without real payments or server storage
+- Order history and a complete Profile page are outside the implemented scope
 
 
 ## 4. Weekly Development Plan
@@ -103,15 +126,25 @@ Prioritize CORE requirements before adding optional features
 - [x] Test the complete shopping journey
 - [x] Verify stock limits, duplicate products, and cart calculations
 - [x] Check loading, error, empty, and invalid-route states
+- [x] Implement and test the Error Boundary fallback and Reload button
 - [x] Check mobile and desktop layouts
 - [x] Verify form labels, image alt text, and visible keyboard focus
 - [x] Run TypeScript checks and the production build
+- [x] Apply consistent mint and teal styling across pages
+- [x] Implement light/dark mode with a saved theme preference
+- [ ] Run the final ESLint check
+- [ ] Verify the latest version in Chrome and Firefox
+- [ ] Run Lighthouse on the deployed site and save the report
+
 
 #### Documentation and Deployment
 
 - [ ] Complete README.md
+- [ ] Complete DEBUG-LOG.md with at least three real bugs and fixes
 - [ ] Complete REPORT.md and document AI usage
-- [ ] Update PLAN.md with final progress
+- [x] Update PLAN.md with current progress
 - [x] Deploy to Vercel or Netlify
 - [ ] Verify navigation and direct route access on the live site
+- [ ] Confirm the deployment includes the latest committed changes
 - [ ] Prepare the final GitHub repository and deployment links
+- [ ] Submit the repository by November 6, 2026, at 23:59 Georgia time
